@@ -35,7 +35,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const neutralLight = theme.palette.neutral.light;
   const [searchText, setsearchText] = useState("");
   const getPosts = async () => {
-    const response = await fetch("http://localhost:3001/posts", {
+    const response = await fetch("https://social-media-app-backend-topaz.vercel.app/posts", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -52,7 +52,7 @@ console.log(text)
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `https://social-media-app-backend-topaz.vercel.app/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

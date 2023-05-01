@@ -66,7 +66,7 @@ const Form = () => {
 
     const savedUserResponse = await fetch(
       
-      "https://share-posts.onrender.com/auth/register",
+      "https://share-posts.onrender.com/register",
       {
         method: "POST",
         body: formData,

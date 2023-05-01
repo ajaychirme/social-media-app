@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://social-media-app-backend-topaz.vercel.app/assets/${image}`}
+        src={`https://share-posts.onrender.com/assets/${image}`}
       />
     </Box>
   );

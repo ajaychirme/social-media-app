@@ -56,6 +56,7 @@ const Form = () => {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
+    console.log("Registering...")
     // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
@@ -64,7 +65,8 @@ const Form = () => {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "https://social-media-app-backend-topaz.vercel.app/auth/register",
+      
+      "https://share-posts.onrender.com/auth/register",
       {
         method: "POST",
         body: formData,
@@ -79,7 +81,7 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("https://social-media-app-backend-topaz.vercel.app/auth/login", {
+    const loggedInResponse = await fetch("https://share-posts.onrender.com/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),

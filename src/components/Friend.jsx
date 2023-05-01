@@ -30,7 +30,7 @@ const Friend = ({ count,friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `https://social-media-app-backend-topaz.vercel.app/users/${_id}/${friendId}`,
+      `https://share-posts.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

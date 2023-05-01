@@ -15,7 +15,7 @@ const ProfilePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   const getUser = async () => {
-    const response = await fetch(`https://social-media-app-backend-topaz.vercel.app/users/${userId}`, {
+    const response = await fetch(`https://share-posts.onrender.com/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

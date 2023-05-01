@@ -33,13 +33,18 @@ const Friend = ({ count,friendId, name, subtitle, userPicturePath }) => {
       `https://share-posts.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
+        mode: 'no-cors',
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       }
     );
+    let datatemp = response;
+    console.log("datatemp is=>",datatemp);
     const data = await response.json();
+    console.log("Data in json is =>",data);
+
     dispatch(setFriends({ friends: data }));
   };
 

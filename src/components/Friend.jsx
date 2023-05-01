@@ -35,7 +35,7 @@ const Friend = ({ count,friendId, name, subtitle, userPicturePath }) => {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
    }}
-    axios.post(`https://share-posts.onrender.com/users/${_id}/${friendId}`, header).then((x)=>{
+    axios.patch(`https://share-posts.onrender.com/users/${_id}/${friendId}`, header).then((x)=>{
           return x.json()
          }).then((y)=>{
             console.log("Yis ",y)

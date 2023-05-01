@@ -32,7 +32,7 @@ const Friend = ({ count,friendId, name, subtitle, userPicturePath }) => {
     const response = await fetch(
       `https://share-posts.onrender.com/users/${_id}/${friendId}`,
       {
-        method: "POST",
+        method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

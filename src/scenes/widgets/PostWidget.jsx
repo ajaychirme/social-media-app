@@ -39,7 +39,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(`https://share-posts.onrender.com/posts/${postId}/like`, {
-      method: "PATCH",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const PostWidget = ({
 
   const patchComment = async () => {
     const response = await fetch(`https://share-posts.onrender.com/posts/${postId}/comment`, {
-      method: "PATCH",
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

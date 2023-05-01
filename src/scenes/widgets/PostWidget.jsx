@@ -38,7 +38,7 @@ const PostWidget = ({
   const primary = palette.primary.main;
 
   const patchLike = async () => {
-    const response = await fetch(`https://share-posts.onrender.com/posts/${postId}/like`, {
+    const response = await fetch(`https://share-posts.onrender.com/posts/like/${postId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

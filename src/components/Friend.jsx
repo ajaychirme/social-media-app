@@ -1,5 +1,6 @@
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setFriends } from "state";
@@ -28,24 +29,46 @@ const Friend = ({ count,friendId, name, subtitle, userPicturePath }) => {
 
   const isFriend = friends && friends.find((friend) => friend._id === friendId);
 
-  const patchFriend = async () => {
-    const response = await fetch(
-      `https://share-posts.onrender.com/users/${_id}/${friendId}`,
-      {
-        method: "PATCH",
-        // mode: 'no-cors',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+  const patchFriend =  () => {
+
+    let header={headers:{
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+   }}
+    axios.post(`https://share-posts.onrender.com/users/${_id}/${friendId}`, header).then((x)=>{
+          return x.json()
+         }).then((y)=>{
+            console.log("Yis ",y)
+           dispatch(setFriends({ friends: y }));
+           }).catch((err)=>{
+             console.log(err)
+           })
+
+
+    //  fetch(
+    //   `https://share-posts.onrender.com/users/${_id}/${friendId}`,
+    //   {
+    //     method: "PATCH",
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // ).then((x)=>{
+    //   return x.json();
+    // }).then((y)=>{
+    //   console.log("Yis ",y)
+    //   // dispatch(setFriends({ friends: y }));
+    // }).catch((err)=>{
+    //   console.log(err)
+    // })
+    //console.log("Res==>",response);
     // let datatemp = response;
     // console.log("datatemp is=>",datatemp);
-    const data = await response.json();
+   // const data = await response.json();
     // console.log("Data in json is =>",data);
 
-    dispatch(setFriends({ friends: data }));
+    // dispatch(setFriends({ friends: data }));
   };
 
   return (
